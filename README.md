@@ -39,23 +39,32 @@
 2. 打开浏览器，访问[A站](https://www.acfun.cn/)，并登录自己的账号；
 3. 在A站的页面上按下<kbd>F12</kbd>进入开发者工具；
 
-<img src="https://gitee.com/zhuweitung/picbed/raw/master/20210420200020.png" style="display:inline-block"/>
+<img src="https://github.com/zhuweitung/picbed/blob/main/20210420200020.png" style="display:inline-block"/>
 
 4. 根据上述图解操作后获得`acPasstoken`和`auth_key`的值，将这两个值填入仓库>`Settings`>`Secrets`中；
 
-<img src="https://gitee.com/zhuweitung/picbed/raw/master/20210419210900.png" style="display:inline-block"/>
+<img src="https://github.com/zhuweitung/picbed/blob/main/20210419210900.png" style="display:inline-block"/>
 
 5. 手动执行任务，测试配置是否正确；
 
-<img src="https://gitee.com/zhuweitung/picbed/raw/master/20210419211126.png" style="display:inline-block"/>
+<img src="https://github.com/zhuweitung/picbed/blob/main/20210419211126.png" style="display:inline-block"/>
 
-6. 使用Turbo版Server酱推送说明
+6. 执行结果推送
 
-   + 前往[sct.ftqq.com](https://sct.ftqq.com/sendkey)点击登入，创建账号。
++ 使用Turbo版Server酱推送说明
 
-   + 点击点[SendKey](https://sct.ftqq.com/sendkey)，生成一个`Key`。将其增加到`Github Secrets`中，变量名为`SERVERPUSHKEY`
+  + 前往[sct.ftqq.com](https://sct.ftqq.com/sendkey)点击登入，创建账号。
 
-   + [配置消息通道](https://sct.ftqq.com/forward)，选择方糖服务号，保存即可。
+  + 点击点[SendKey](https://sct.ftqq.com/sendkey)，生成一个`Key`。将其增加到`Github Secrets`中，变量名为`SERVERPUSHKEY`
+
+
+  + [配置消息通道](https://sct.ftqq.com/forward)，选择方糖服务号，保存即可。
+
++ 使用TelegramBot推送
+
+  + 在Telegram中添加BotFather这个账号，然后依次发送/start /newbot 按照提示即可创建一个新的机器人。记下来给你生成的token
+  + 在Telegram中搜索userinfobot，并给它发送一条消息，它会返回给你chatid
+  + 在Github Secrets中删除`SERVERPUSHKEY`，添加`TELEGRAMBOTTOKEN`，`TELEGRAMCHATID`
 
 7. Fork仓库后，GitHub Actions默认不自动执行任务，需要有commit记录才会激活，最简单就是修改readme.md，在文末添加空行提交，这样自动执行定时任务就激活了
 
